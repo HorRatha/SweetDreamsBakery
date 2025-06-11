@@ -15,7 +15,7 @@
                 price: 45.99,
                 tags: ["Birthday", "Chocolate"],
                 emoji: "🍫",
-                imageData: "https://i.pinimg.com/736x/fc/c6/81/fcc68130e7ee757f5a128768f9ac70dd.jpg"
+                imageData: "./image/1.png"
             },
             {
                 id: 2,
@@ -24,7 +24,7 @@
                 price: 39.99,
                 tags: ["Wedding", "Vanilla"],
                 emoji: "🍓",
-                imageData: ""
+                imageData: "./image/Vanilla_Dreams.png"
             },
             {
                 id: 3,
@@ -33,7 +33,7 @@
                 price: 42.99,
                 tags: ["Anniversary", "Red Velvet"],
                 emoji: "❤️",
-                imageData: ""
+                imageData: "./image/3.png"
             },
             {
                 id: 4,
@@ -42,7 +42,7 @@
                 price: 38.99,
                 tags: ["Summer", "Citrus"],
                 emoji: "🍋",
-                imageData: ""
+                imageData: "./image/4.png"
             },
             {
                 id: 5,
@@ -51,7 +51,7 @@
                 price: 48.99,
                 tags: ["Gourmet", "Caramel"],
                 emoji: "🍯",
-                imageData: ""
+                imageData: "./image/5.png"
             },
             {
                 id: 6,
@@ -60,7 +60,7 @@
                 price: 41.99,
                 tags: ["Healthy", "Berry"],
                 emoji: "🫐",
-                imageData: ""
+                imageData: "./image/6.png"
             },
             {
                 id: 7,
@@ -69,7 +69,7 @@
                 price: 52.99,
                 tags: ["Gourmet", "Coffee"],
                 emoji: "☕",
-                imageData: ""
+                imageData: "./image/7.png"
             },
             {
                 id: 8,
@@ -78,7 +78,7 @@
                 price: 44.99,
                 tags: ["Summer", "Tropical"],
                 emoji: "🥥",
-                imageData: ""
+                imageData: "./image/8.png"
             },
             {
                 id: 9,
@@ -87,7 +87,7 @@
                 price: 46.99,
                 tags: ["Gourmet", "Cherry"],
                 emoji: "🍒",
-                imageData: ""
+                imageData: "./image/9.png"
             },
             {
                 id: 10,
@@ -96,7 +96,7 @@
                 price: 43.99,
                 tags: ["Healthy", "Matcha"],
                 emoji: "🍵",
-                imageData: ""
+                imageData: "./image/10.png"
             },
             {
                 id: 11,
@@ -105,7 +105,7 @@
                 price: 47.99,
                 tags: ["Birthday", "Cheesecake"],
                 emoji: "🍰",
-                imageData: ""
+                imageData: "./image/11.png"
             },
             {
                 id: 12,
@@ -114,7 +114,7 @@
                 price: 40.99,
                 tags: ["Healthy", "Carrot"],
                 emoji: "🥕",
-                imageData: ""
+                imageData: "./image/12.png"
             }
         ];
 
