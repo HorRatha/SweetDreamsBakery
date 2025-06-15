@@ -18,6 +18,12 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/version.css">
+    <link rel="stylesheet" href="./css/cusor.css">
+    <link rel="stylesheet" href="./css/testimonial.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/CardDetail.css">
+    <link rel="stylesheet" href="./css/needHelp.css">
 
 </head>
 <body>
@@ -26,56 +32,57 @@
         <div class="cake-loader">🎂</div>
     </div>
 
+    <canvas id="snowflake-effect-canvas"></canvas>
+
     <!-- Notification -->
-    <!-- <div class="notification" id="notification">
+    <div class="notification" id="notification">
         <i class="fas fa-check-circle me-2"></i>
         <span id="notificationText">Item added to cart!</span>
-    </div> -->
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-               <img src="./image/Logo.png" alt="Sweet Dreams Bakery" width="40" height="40" class="d-inline-block align-text-top">
-                Sweet Dreams Bakery
-            </a>
+    <div class="container">
+        <a class="navbar-brand" href="#home">
+           <img src="./image/Logo.png" alt="Sweet Dreams Bakery" width="40" height="40" class="d-inline-block align-text-top">
+            Sweet Dreams Bakery
+        </a>
 
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#custom">Custom Order</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <button class="cart-btn" onclick="openCart()">
-                            <i class="fas fa-shopping-cart me-2"></i>Cart
-                            <span class="cart-badge" id="cartBadge">0</span>
-                        </button>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <button class="theme-toggle" onclick="toggleTheme()">
-                            <i class="fas fa-moon" id="theme-icon"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#custom">Custom Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <button class="cart-btn" onclick="openCart()">
+                        <i class="fas fa-shopping-cart me-2"></i>Cart
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </li>
+                <li class="nav-item ms-2">
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </li>
+            </ul>
         </div>
+    </div>
     </nav>
 
     <!-- Cart Modal -->
@@ -117,7 +124,7 @@
     </div>
 
     <!-- Image Upload Modal -->
-    <div class="modal fade" id="imageModal" tabindex="-1">
+    <!-- <div class="modal fade" id="imageModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 20px; border: 2px solid var(--chocolate-light);">
                 <div class="modal-header" style="background: var(--vanilla); border-bottom: 2px solid var(--chocolate-light);">
@@ -153,21 +160,132 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <section id="home" class="hero">
+
+     <!-- Sweet Creations Section - Completely Scoped -->
+    <section class="sweet-creations-section" id="home">
+        <div class="sweet-creations-custom-cursor"></div>
+        
+        <div class="sweet-creations-hero-section" id="sweetCreationsHeroSection">
+            <div class="sweet-creations-floating-elements">
+                <i class="fas fa-birthday-cake sweet-creations-floating-element"></i>
+                <i class="fas fa-cookie-bite sweet-creations-floating-element"></i>
+                <i class="fas fa-ice-cream sweet-creations-floating-element"></i>
+                <i class="fas fa-candy-cane sweet-creations-floating-element"></i>
+          
+            </div>
+            
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="sweet-creations-hero-content text-center">
+                            <div class="method-4">
+                                <h1 class="sweet-creations-title">Sweet Creations</h1>
+                            </div>
+                            <p class="sweet-creations-subtitle">Discover our artisanal cakes crafted with passion, where every bite tells a story of sweetness and perfection</p>
+                            <a href="#menu" class="sweet-creations-cta-button">
+                                <i class="fas fa-shopping-cart"></i>
+                                Order Your Dream Cake
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-lg-5 sweet-creations-stats-container">
+                <div class="sweet-creations-stat-item">
+                    <span class="sweet-creations-stat-number">500+</span>
+                    <span class="sweet-creations-stat-label">Happy Customers</span>
+                </div>
+                <div class="sweet-creations-stat-item">
+                    <span class="sweet-creations-stat-number">50+</span>
+                    <span class="sweet-creations-stat-label">Cake Varieties</span>
+                </div>
+                <div class="sweet-creations-stat-item">
+                    <span class="sweet-creations-stat-number">5</span>
+                    <span class="sweet-creations-stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Values Section -->
+    <section class="vision-excellence-section">
+        <div class="vision-particles" id="visionParticles"></div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 hero-content">
-                    <h1 class="fade-in">Sweet Dreams Come True</h1>
-                    <p class="lead fade-in">Crafting delicious memories one cake at a time. From elegant wedding cakes to fun birthday treats, we make every celebration special.</p>
-                    <div class="fade-in">
-                        <a href="#menu" class="btn btn-custom me-3">
-                            <i class="fas fa-eye me-2"></i>View Our Cakes
-                        </a>
-                        <a href="#custom" class="btn btn-outline-light">
-                            <i class="fas fa-paint-brush me-2"></i>Custom Order
-                        </a>
+            <div class=" row align-items-center ">
+                <!-- Content Column -->
+                <div class="col-lg-6 col-md-6 mb-5 mb-md-0 vision-content-col">
+                    <div class="pe-lg-4">
+                        <p class="vision-embracing-title">Embracing Excellence</p>
+                        <h2 class="vision-main-heading">
+                            A Journey into Our Vision, Values, and Passionate Commitment
+                        </h2>
+                        <p class="vision-description-text">
+                            Our journey began years ago, and since then, we have been privileged to countless 
+                            clients, each with unique needs and aspirations. Our success is a result of not only our 
+                            expertise but also our genuine care for the success of those we work with. We welcome you 
+                            to explore the possibilities with us.
+                        </p>
+                        <ul class="vision-feature-list">
+                            <li class="vision-feature-item">
+                                <div class="vision-feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Navigating possibilities: your gateway to premium services
+                            </li>
+                            <li class="vision-feature-item">
+                                <div class="vision-feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Transforming challenges into opportunities and ideas into reality
+                            </li>
+                        </ul>
+                        <a href="#services" class="vision-services-btn">All Services</a>
+                    </div>
+                </div>
+                
+                <!-- 3D Carousel Column -->
+                <div class="col-lg-6 col-md-6 vision-carousel-col">
+                    <div class="vision-carousel-container">
+                        <div class="vision-carousel-track" id="visionCarouselTrack">
+                            <div class="vision-carousel-slide active">
+                                <div class="vision-slide-card" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')"></div>
+                            </div>
+                            <div class="vision-carousel-slide">
+                                <div class="vision-slide-card" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')"></div>
+                            </div>
+                            <div class="vision-carousel-slide">
+                                <div class="vision-slide-card" style="background-image: url('https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')"></div>
+                            </div>
+                            <div class="vision-carousel-slide">
+                                <div class="vision-slide-card" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80')"></div>
+                            </div>
+                            <div class="vision-carousel-slide">
+                                <div class="vision-slide-card" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="vision-carousel-controls">
+                            <button class="vision-control-btn" id="visionPrevBtn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="vision-control-btn" id="visionNextBtn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="vision-control-btn" id="visionAutoBtn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="vision-carousel-indicators" id="visionIndicators">
+                            <div class="vision-indicator active" data-slide="0"></div>
+                            <div class="vision-indicator" data-slide="1"></div>
+                            <div class="vision-indicator" data-slide="2"></div>
+                            <div class="vision-indicator" data-slide="3"></div>
+                            <div class="vision-indicator" data-slide="4"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,7 +295,8 @@
     <!-- Main Content -->
     <div class="container py-5" id="menu">
         <!-- Title -->
-        <h1 class="section-title fade-in">Our Delicious Cakes</h1>
+         
+        <h1 class="section-title fade-in method-4 ">Our Delicious Cakes</h1>
         
         <!-- Filter Controls -->
         <div class="card filter-card mb-4 fade-in">
@@ -230,43 +349,6 @@
             <p class="text-muted">Try adjusting your search or filters</p>
         </div>
     </div>
-
-    <!-- About Section -->
-    <section id="about" class="section" style="background: var(--vanilla);">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 fade-in">
-                    <h2 class="section-title text-start">About Sweet Dreams</h2>
-                    <p class="lead">For over 15 years, Sweet Dreams Bakery has been creating magical moments through our artisanal cakes and pastries.</p>
-                    <p>Founded by pastry chef Maria Rodriguez in 2008, our bakery combines traditional techniques with modern flavors to create unforgettable desserts. Every cake is handcrafted with love, using only the finest ingredients sourced locally when possible.</p>
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            <div class="text-center">
-                                <i class="fas fa-award fa-2x text-warning mb-2"></i>
-                                <h4>Award Winning</h4>
-                                <p class="small">Best Bakery 2023</p>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-center">
-                                <i class="fas fa-heart fa-2x text-danger mb-2"></i>
-                                <h4>Made with Love</h4>
-                                <p class="small">Every single cake</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 fade-in">
-                    <div class="cake-image" style="height: 400px; border-radius: 20px;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                            <i class="fas fa-users fa-4x" style="color: rgba(255,255,255,0.8);"></i>
-                            <div style="color: rgba(255,255,255,0.8); margin-top: 1rem; font-size: 1.2rem;">Our Amazing Team</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Custom Order Section -->
     <section id="custom" class="section">
@@ -353,80 +435,120 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section" style="background: var(--vanilla);">
+    <!-- Customer Feedback Header -->
+    <section class="feedback-header">
         <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
             <div class="row">
-                <div class="col-lg-6 fade-in">
-                    <div class="contact-info">
-                        <h4 class="mb-4">Contact Information</h4>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Address</strong><br>
-                                123 Sweet Street, Bakery District<br>
-                                Sweet City, SC 12345
-                            </div>
+                <div class="col-12 text-center">
+                    <h2 class="section-title display-4">
+                        <i class="fas fa-heart text-danger me-3"></i>
+                        Customer Feedback
+                    </h2>
+                    <p class="section-subtitle lead">
+                        Hear what our customers have to say about their sweet experiences with our delicious cakes and exceptional service
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-container">
+        <div class="carousel-row">
+            <div class="carousel-track" id="track1"></div>
+        </div>
+        <div class="carousel-row">
+            <div class="carousel-track" id="track2"></div>
+        </div>
+    </div>
+
+     <!-- Need Help Section -->
+    <section class="need-help-section">
+        <div class="container need-help-content">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title display-4">Need Help?</h2>
+                    <p class="section-subtitle">Have questions about ordering or need assistance? Our customer service team is always ready to help you choose the perfect cake for your occasion!</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Order Questions Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Phone</strong><br>
-                                (555) 123-CAKE (2253)
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Email</strong><br>
-                                orders@sweetdreamsbakery.com
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <strong>Hours</strong><br>
-                                Mon-Sat: 7AM - 8PM<br>
-                                Sunday: 8AM - 6PM
-                            </div>
+                        <h4 class="help-title text-center">Order Questions</h4>
+                        <p class="help-description text-center">
+                            Need help placing an order or have questions about our cakes? We're here to guide you through the process.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="help-btn">
+                                <i class="fas fa-question-circle"></i>
+                                Get Help
+                            </a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6 fade-in">
-                    <div class="cake-card">
-                        <div class="cake-card-body p-4">
-                            <h4 class="mb-4">Send us a Message</h4>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="contactName" class="form-label">
-                                        <i class="fas fa-user me-2"></i>Name
-                                    </label>
-                                    <input type="text" class="form-control" id="contactName" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="contactEmail" class="form-label">
-                                        <i class="fas fa-envelope me-2"></i>Email
-                                    </label>
-                                    <input type="email" class="form-control" id="contactEmail" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="contactMessage" class="form-label">
-                                        <i class="fas fa-comment me-2"></i>Message
-                                    </label>
-                                    <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-custom w-100">
-                                    <i class="fas fa-paper-plane me-2"></i>Send Message
-                                </button>
-                            </form>
+
+                <!-- Cake Selection Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-birthday-cake"></i>
                         </div>
+                        <h4 class="help-title text-center">Perfect Cake Selection</h4>
+                        <p class="help-description text-center">
+                            Let our experts help you choose the ideal cake for your special occasion. We know what works best!
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="help-btn">
+                                <i class="fas fa-heart"></i>
+                                Find My Cake
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Service Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="help-title text-center">Customer Service</h4>
+                        <p class="help-description text-center">
+                            Our friendly customer service team is ready to assist you with any questions or concerns you may have.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="help-btn">
+                                <i class="fas fa-phone"></i>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-cta">
+                        <h3 class="cta-title">Ready to Order Your Perfect Cake?</h3>
+                        <p class="cta-description">
+                            Our team is standing by to help you create the perfect cake for your special moment. 
+                            Let's make your celebration unforgettable!
+                        </p>
+                        <a href="contact.html" class="cta-btn">
+                            <i class="fas fa-phone-alt"></i>
+                            Contact Us Now
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -491,8 +613,15 @@
         </div>
     </footer>
 
+   
+
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/version.js"></script>
+    <script src="./js/cusor.js"></script>
+    <script src="./js/testimonial.js"></script>
+    <script src="./js/hero.js" ></script>
+    
 </body>
 </html>

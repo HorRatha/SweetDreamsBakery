@@ -172,27 +172,6 @@ body {
     50% { transform: translateY(-20px); }
 }
 
-.hero-content {
-    z-index: 2;
-    position: relative;
-}
-
-.hero h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: var(--vanilla);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease-out;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--vanilla);
-    margin-bottom: 2rem;
-    animation: fadeInUp 1s ease-out 0.2s both;
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -641,6 +620,7 @@ body {
     position: absolute;
     left: -9999px;
 }
+
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {

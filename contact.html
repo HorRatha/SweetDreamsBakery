@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Dreams Bakery</title>
+    <meta name="description" content="Discover delicious homemade cakes crafted with love. From classic flavors to custom creations, 
+    our cake shop offers the perfect treat for every occasion. Order online today!">
+
+    <link rel="icon" href="./image/Logo.png" type="image/x-icon">
+
+     <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- <link rel="stylesheet" href="./css/version.css"> -->
+    <link rel="stylesheet" href="./css/cusor.css">
+    <!-- <link rel="stylesheet" href="./css/testimonial.css"> -->
+    <!-- <link rel="stylesheet" href="./css/hero.css">  -->
+
+
+
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="cake-loader">🎂</div>
+    </div>
+
+    <canvas id="snowflake-effect-canvas"></canvas>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle me-2"></i>
+        <span id="notificationText">Item added to cart!</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+               <img src="./image/Logo.png" alt="Sweet Dreams Bakery" width="40" height="40" class="d-inline-block align-text-top">
+                Sweet Dreams Bakery
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#custom">Custom Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="cart-btn" onclick="openCart()">
+                            <i class="fas fa-shopping-cart me-2"></i>Cart
+                            <span class="cart-badge" id="cartBadge">0</span>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fas fa-moon" id="theme-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+     <!-- Add these elements for the cart and notifications to work -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle me-2"></i>
+        <span id="notificationText"></span>
+    </div>
+
+       <!-- Contact Section -->
+    <section id="contact" class="section" style="background: var(--vanilla);">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 fade-in">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Address</strong><br>
+                                123 Sweet Street, Bakery District<br>
+                                Sweet City, SC 12345
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                (555) 123-CAKE (2253)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                orders@sweetdreamsbakery.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Mon-Sat: 7AM - 8PM<br>
+                                Sunday: 8AM - 6PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 fade-in">
+                    <div class="cake-card">
+                        <div class="cake-card-body p-4">
+                            <h4 class="mb-4">Send us a Message</h4>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="contactName" class="form-label">
+                                        <i class="fas fa-user me-2"></i>Name
+                                    </label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactEmail" class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>Email
+                                    </label>
+                                    <input type="email" class="form-control" id="contactEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">
+                                        <i class="fas fa-comment me-2"></i>Message
+                                    </label>
+                                    <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
+                                </div>
+                                <button  type="submit" class="btn btn-custom w-100" id="submitBtn">
+                                    <i  class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </form>
+                            <div id="formMessage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade cart-modal" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--vanilla); border-bottom: 2px solid var(--chocolate-light);">
+                    <h5 class="modal-title" style="color: var(--chocolate-medium); font-weight: 600;">
+                        <i class="fas fa-shopping-cart me-2"></i>Your Cart
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="background: var(--vanilla);">
+                    <div id="cartItems">
+                        <!-- Cart items will be inserted here -->
+                    </div>
+                    <div id="emptyCart" style="display: none; text-align: center; padding: 40px;">
+                        <i class="fas fa-shopping-cart display-1 text-muted mb-3"></i>
+                        <h4 class="text-muted">Your cart is empty</h4>
+                        <p class="text-muted">Add some delicious cakes to get started!</p>
+                    </div>
+                </div>
+                <div class="modal-footer flex-column" style="background: var(--vanilla); border-top: 2px solid var(--chocolate-light);">
+                    <div class="cart-total w-100 mb-3" id="cartTotal" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Total:</span>
+                            <span id="totalAmount" class="price-text">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 w-100">
+                        <button type="button" class="btn btn-secondary flex-fill" data-bs-dismiss="modal" style="border-radius: 20px;">Continue Shopping</button>
+                        <button type="button" class="btn btn-chocolate flex-fill" onclick="checkout()" id="checkoutBtn" style="display: none;">
+                            <i class="fas fa-credit-card me-1"></i>Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">
+                        <i class="fas fa-birthday-cake me-2"></i>Sweet Dreams Bakery
+                    </h5>
+                    <p>Creating sweet memories since 2008. Every cake tells a story, and we're here to help you tell yours.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#custom">Custom Order</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="mb-3">Popular Cakes</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Chocolate Paradise</a></li>
+                        <li><a href="#">Vanilla Dreams</a></li>
+                        <li><a href="#">Red Velvet Delight</a></li>
+                        <li><a href="#">Custom Wedding Cakes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 mb-4">
+                    <h6 class="mb-3">Newsletter</h6>
+                    <p>Subscribe for special offers and new cake announcements!</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-custom" type="button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr style="margin: 2rem 0; border-color: var(--chocolate-medium);">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Sweet Dreams Bakery. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> and lots of sugar</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <!-- <script src="./js/version.js"></script> -->
+    <script src="./js/cusor.js"></script>
+    <!-- <script src="./js/testimonial.js"></script> -->
+    <!-- <script src="./js/hero.js" ></script> -->
+    
+    
+</body>
+</html>
