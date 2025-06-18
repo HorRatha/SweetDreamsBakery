@@ -1,4 +1,5 @@
-           /* ===== COMPLETELY SCOPED CSS FOR SWEET CREATIONS SECTION ONLY ===== */
+
+        /* Performance Optimized CSS */
         .sweet-creations-section {
             --sc-chocolate-dark: #3d2914;
             --sc-chocolate-medium: #8b4513;
@@ -7,41 +8,98 @@
             --sc-strawberry: #ff69b4;
             --sc-cream: #fffdd0;
             --sc-caramel: #daa520;
-            --sc-gradient: linear-gradient(135deg, var(--sc-chocolate-light), var(--sc-chocolate-medium));
-            --sc-gradient-hero: linear-gradient(135deg, var(--sc-chocolate-medium), var(--sc-chocolate-dark));
-            --sc-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --sc-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.2);
             --sc-transition: all 0.3s ease;
-            --sc-transition-slow: all 0.6s ease;
             
-            background: var(--sc-gradient-hero);
             color: var(--sc-vanilla);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            transition: var(--sc-transition-slow);
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
-            isolation: isolate; /* Creates a new stacking context */
+            margin: 0;
+            padding: 0;
+            /* Hardware acceleration for the section */
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
-        /* Remove the dark mode variant to prevent conflicts */
-        .sweet-creations-section .sweet-creations-hero-section {
+        /* Optimized Carousel with hardware acceleration */
+        .sweet-creations-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            /* Hardware acceleration */
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .sweet-creations-carousel .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Hardware acceleration for carousel items */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .sweet-creations-carousel .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(61, 41, 20, 0.4);
+            z-index: 1;
+            /* Hardware acceleration for overlay */
+            transform: translateZ(0);
+        }
+
+        .sweet-creations-carousel .carousel-control-prev,
+        .sweet-creations-carousel .carousel-control-next {
+            width: 5%;
+            color: var(--sc-caramel);
+            opacity: 0.8;
+            transition: var(--sc-transition);
+            z-index: 15;
+        }
+
+        .sweet-creations-carousel .carousel-control-prev:hover,
+        .sweet-creations-carousel .carousel-control-next:hover {
+            color: var(--sc-strawberry);
+            opacity: 1;
+        }
+
+        .sweet-creations-carousel .carousel-control-prev-icon,
+        .sweet-creations-carousel .carousel-control-next-icon {
+            background-color: var(--sc-caramel);
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            padding: 0.5rem;
+        }
+
+        .sweet-creations-hero-section {
             min-height: 100vh;
             position: relative;
             overflow: hidden;
+            z-index: 10;
         }
 
-        .sweet-creations-section .sweet-creations-hero-section.sc-show-custom-cursor {
+        .sweet-creations-hero-section.sc-show-custom-cursor {
             cursor: none;
         }
 
-        .sweet-creations-section .sweet-creations-hero-content {
+        .sweet-creations-hero-content {
             position: relative;
-            z-index: 10;
+            z-index: 20;
             padding: 120px 0;
         }
 
-         .method-4 .sweet-creations-title {
+        .method-4 .sweet-creations-title {
             font-size: clamp(3rem, 8vw, 8rem);
             font-weight: 800;
             line-height: 0.9;
@@ -61,34 +119,30 @@
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
             animation: rainbow-pulse 4s ease-in-out infinite;
+            /* Hardware acceleration */
+            transform: translateZ(0);
+            will-change: background-position;
         }
 
         @keyframes rainbow-pulse {
-            0%, 100% {
-                background-position: 0% 0%;
-            }
-            25% {
-                background-position: 100% 0%;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-            75% {
-                background-position: 0% 100%;
-            }
+            0%, 100% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
         }
 
-        .sweet-creations-section .sweet-creations-subtitle {
+        .sweet-creations-subtitle {
             font-size: 1.5rem;
             color: var(--sc-vanilla);
             margin-bottom: 3rem;
             opacity: 0.9;
             font-weight: 300;
             letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .sweet-creations-section .sweet-creations-cta-button {
-            background: var(--sc-gradient);
+        .sweet-creations-cta-button {
+            background: linear-gradient(135deg, var(--sc-chocolate-light), var(--sc-chocolate-medium));
             border: 2px solid var(--sc-caramel);
             color: var(--sc-vanilla);
             padding: 1rem 3rem;
@@ -100,36 +154,24 @@
             align-items: center;
             gap: 0.5rem;
             transition: var(--sc-transition);
-            box-shadow: var(--sc-shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             position: relative;
             overflow: hidden;
+            /* Hardware acceleration */
+            transform: translateZ(0);
+            will-change: transform;
         }
 
-        .sweet-creations-section .sweet-creations-cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--sc-shadow-hover);
+        .sweet-creations-cta-button:hover {
+            transform: translateY(-3px) translateZ(0);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             color: var(--sc-vanilla);
             border-color: var(--sc-strawberry);
             text-decoration: none;
         }
 
-        .sweet-creations-section .sweet-creations-cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: var(--sc-transition);
-        }
-
-        .sweet-creations-section .sweet-creations-cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* Scoped mouse trail images - only appear within this section */
-        .sweet-creations-section .sweet-creations-mouse-trail-image {
+        /* Optimized mouse trail images */
+        .sweet-creations-mouse-trail-image {
             position: fixed;
             pointer-events: none;
             width: 200px;
@@ -138,12 +180,18 @@
             border: 3px solid var(--sc-caramel);
             object-fit: cover;
             opacity: 0;
-            z-index: 1000; /* High z-index but scoped */
-            box-shadow: var(--sc-shadow);
-            transition: opacity 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            /* Critical: Hardware acceleration for smooth animations */
+            transform: translate(-50%, -50%) scale(0.3) rotate(0deg) translateZ(0);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            /* Fixed positioning */
+            left: -500px;
+            top: -500px;
         }
 
-        .sweet-creations-section .sweet-creations-custom-cursor {
+        .sweet-creations-custom-cursor {
             position: fixed;
             width: 20px;
             height: 20px;
@@ -151,12 +199,14 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s ease;
             mix-blend-mode: difference;
             opacity: 0;
+            /* Hardware acceleration */
+            transform: translateZ(0);
+            will-change: transform;
         }
 
-        .sweet-creations-section .sweet-creations-custom-cursor::before {
+        .sweet-creations-custom-cursor::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -168,101 +218,97 @@
             transform: translate(-50%, -50%);
         }
 
-        .sweet-creations-section .sweet-creations-stats-container {
+        .sweet-creations-stats-container {
             position: absolute;
             bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             gap: 4rem;
-            z-index: 10;
+            z-index: 20;
         }
 
-        .sweet-creations-section .sweet-creations-stat-item {
+        .sweet-creations-stat-item {
             text-align: center;
             opacity: 0.8;
         }
 
-        .sweet-creations-section .sweet-creations-stat-number {
+        .sweet-creations-stat-number {
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--sc-caramel);
             display: block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .sweet-creations-section .sweet-creations-stat-label {
+        .sweet-creations-stat-label {
             font-size: 0.9rem;
             color: var(--sc-vanilla);
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        .sweet-creations-section .sweet-creations-floating-elements {
+        .sweet-creations-floating-elements {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 5;
         }
 
-        .sweet-creations-section .sweet-creations-floating-element {
+        .sweet-creations-floating-element {
             position: absolute;
             color: var(--sc-caramel);
             font-size: 2rem;
-            opacity: 0.1;
+            opacity: 0.3;
             animation: sc-float 6s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* Hardware acceleration */
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         @keyframes sc-float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(180deg); }
+            0%, 100% { transform: translateY(0px) rotate(0deg) translateZ(0); }
+            50% { transform: translateY(-30px) rotate(180deg) translateZ(0); }
         }
 
-        .sweet-creations-section .sweet-creations-floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .sweet-creations-section .sweet-creations-floating-element:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
-        .sweet-creations-section .sweet-creations-floating-element:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
-        .sweet-creations-section .sweet-creations-floating-element:nth-child(4) { top: 30%; right: 30%; animation-delay: 1s; }
+        .sweet-creations-floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .sweet-creations-floating-element:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .sweet-creations-floating-element:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+        .sweet-creations-floating-element:nth-child(4) { top: 30%; right: 30%; animation-delay: 1s; }
 
         @media (max-width: 768px) {
-            .sweet-creations-section .sweet-creations-hero-content {
+            .sweet-creations-hero-content {
                 padding: 80px 0;
             }
             
-            .sweet-creations-section .sweet-creations-stats-container {
+            .sweet-creations-stats-container {
                 flex-direction: column;
                 gap: 2rem;
                 bottom: 30px;
             }
             
-            .sweet-creations-section .sweet-creations-subtitle {
+            .sweet-creations-subtitle {
                 font-size: 1.2rem;
             }
             
-            .sweet-creations-section .sweet-creations-mouse-trail-image {
+            .sweet-creations-mouse-trail-image {
                 width: 150px;
                 height: 150px;
             }
+
+            .sweet-creations-carousel .carousel-control-prev-icon,
+            .sweet-creations-carousel .carousel-control-next-icon {
+                width: 2rem;
+                height: 2rem;
+            }
         }
 
-        /* Demo styles for other sections - showing they won't be affected */
-        .other-section {
-            min-height: 100vh;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-family: Arial, sans-serif;
-        }
-
-        .dark-mode-section {
-            min-height: 100vh;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+        body {
+            margin: 0;
+            padding: 0;
         }

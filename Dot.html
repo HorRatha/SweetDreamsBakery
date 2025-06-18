@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Navigation Indicator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for navigation indicator */
+        .nav-indicator {
+            z-index: 100;
+        }
+        
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-dot.active {
+            background-color: #ff3366 !important;
+            transform: scale(1.5);
+        }
+        
+        .nav-label {
+            right: 25px;
+            background-color: rgba(34, 34, 34, 0.9);
+            font-size: 12px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .nav-dot:hover .nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Demo sections for scrolling */
+        .demo-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        
+        #home { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        #features { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        #animations { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        #gallery { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        #contact { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    </style>
+</head>
+<body>
+    <!-- Navigation Indicator using Bootstrap classes -->
+    <div class="nav-indicator position-fixed top-50 end-0 translate-middle-y me-3 d-flex flex-column">
+        <div class="nav-dot rounded-circle mb-3 active position-relative" data-section="home">
+            <div class="nav-label position-absolute top-50 translate-middle-y px-2 py-1 rounded text-white small">
+                Home
+            </div>
+        </div>
+        <div class="nav-dot rounded-circle mb-3 position-relative" data-section="features">
+            <div class="nav-label position-absolute top-50 translate-middle-y px-2 py-1 rounded text-white small">
+                Features
+            </div>
+        </div>
+        <div class="nav-dot rounded-circle mb-3 position-relative" data-section="animations">
+            <div class="nav-label position-absolute top-50 translate-middle-y px-2 py-1 rounded text-white small">
+                Animations
+            </div>
+        </div>
+        <div class="nav-dot rounded-circle mb-3 position-relative" data-section="gallery">
+            <div class="nav-label position-absolute top-50 translate-middle-y px-2 py-1 rounded text-white small">
+                Gallery
+            </div>
+        </div>
+        <div class="nav-dot rounded-circle position-relative" data-section="contact">
+            <div class="nav-label position-absolute top-50 translate-middle-y px-2 py-1 rounded text-white small">
+                Contact
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo sections -->
+    <section id="home" class="demo-section text-white">
+        <div class="text-center">
+            <h1>Home Section</h1>
+            <p class="lead">Scroll to see navigation indicator in action</p>
+        </div>
+    </section>
+
+    <section id="features" class="demo-section text-white">
+        <div class="text-center">
+            <h1>Features Section</h1>
+        </div>
+    </section>
+
+    <section id="animations" class="demo-section text-white">
+        <div class="text-center">
+            <h1>Animations Section</h1>
+        </div>
+    </section>
+
+    <section id="gallery" class="demo-section text-white">
+        <div class="text-center">
+            <h1>Gallery Section</h1>
+        </div>
+    </section>
+
+    <section id="contact" class="demo-section text-white">
+        <div class="text-center">
+            <h1>Contact Section</h1>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navDots = document.querySelectorAll('.nav-dot');
+            const sections = document.querySelectorAll('section');
+
+            // Click navigation
+            navDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const targetSection = document.getElementById(this.dataset.section);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Update active state on scroll
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.dataset.section === current) {
+                        dot.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

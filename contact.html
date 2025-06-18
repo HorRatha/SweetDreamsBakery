@@ -16,6 +16,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/styles.css">
     <!-- <link rel="stylesheet" href="./css/version.css"> -->
@@ -28,8 +30,57 @@
 </head>
 <body>
     <!-- Loading Screen -->
-    <div class="loading-screen" id="loading">
-        <div class="cake-loader">🎂</div>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="cake-loader d-flex flex-column align-items-center">
+                        
+                        <!-- Cake Animation -->
+                        <div class="cake-container mb-4">
+                            <div class="sparkles">
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                            </div>
+                            
+                            <div class="cake-base"></div>
+                            <div class="cake-layer1"></div>
+                            <div class="cake-layer2"></div>
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Loading Text -->
+                        <h4 class="loading-text mb-3 text-center">Sweet Loading...</h4>
+                        
+                        <!-- Progress Bar -->
+                        <div class="progress-container mb-3">
+                            <div class="progress-fill"></div>
+                        </div>
+                        
+                        <!-- Loading Dots -->
+                        <div class="loading-dots d-flex justify-content-center">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        
+                        <!-- Optional Spinner for fallback -->
+                        <div class="mt-3">
+                            <div class="spinner-border text-secondary d-none" role="status" style="color: var(--primary-pink) !important;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <canvas id="snowflake-effect-canvas"></canvas>
@@ -84,8 +135,6 @@
             </div>
         </div>
     </nav>
-
-    
 
      <!-- Add these elements for the cart and notifications to work -->
     <div class="notification" id="notification">
@@ -207,7 +256,6 @@
         </div>
     </div>
     
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -275,6 +323,7 @@
     <script src="./js/main.js"></script>
     <!-- <script src="./js/version.js"></script> -->
     <script src="./js/cusor.js"></script>
+    
     <!-- <script src="./js/testimonial.js"></script> -->
     <!-- <script src="./js/hero.js" ></script> -->
     

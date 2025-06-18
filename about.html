@@ -5,18 +5,193 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Sweet Dreams Bakery</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/styles.css"> 
     <link rel="stylesheet" href="./css/cusor.css">
-    <!-- <link rel="stylesheet" href="./index.html">
-    <link rel="stylesheet" href="./contact.html"> -->
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/needHelp.css">
 </head>
 <body>
+   <section class="auh-section position-relative overflow-hidden d-flex align-items-center justify-content-center" style="min-height: 100vh; margin-top: 0; padding-top: 0;">
+        <!-- Background Image Container -->
+        <div class="auh-background position-absolute top-0 start-0 w-100 h-100">
+            <!-- High-quality background image -->
+            <img src="./image/wp3.png" 
+                 alt="Bakery Background" 
+                 class="w-100 h-100 object-fit-cover">
+        </div>
+
+        <!-- Overlay for better text readability -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" 
+             style="background: linear-gradient(135deg, rgba(245, 245, 220, 0.8) 0%, rgba(255, 253, 208, 0.7) 50%, rgba(240, 230, 255, 0.8) 100%);"></div>
+
+        <!-- Animated Background Elements -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 1;">
+            <!-- Floating Cake Icons -->
+            <div class="floating-element position-absolute" style="top: 15%; left: 10%; animation: float 6s ease-in-out infinite;">
+                <i class="fas fa-birthday-cake" style="font-size: 2rem; color: var(--sc-strawberry); opacity: 0.6;"></i>
+            </div>
+            <div class="floating-element position-absolute" style="top: 20%; right: 15%; animation: float 8s ease-in-out infinite reverse;">
+                <i class="fas fa-cupcake" style="font-size: 1.5rem; color: var(--sc-caramel); opacity: 0.6;"></i>
+            </div>
+            <div class="floating-element position-absolute" style="bottom: 25%; left: 15%; animation: float 7s ease-in-out infinite;">
+                <i class="fas fa-cookie-bite" style="font-size: 1.8rem; color: var(--sc-chocolate-light); opacity: 0.6;"></i>
+            </div>
+            <div class="floating-element position-absolute" style="bottom: 20%; right: 10%; animation: float 9s ease-in-out infinite reverse;">
+                <i class="fas fa-ice-cream" style="font-size: 2.2rem; color: var(--sc-strawberry); opacity: 0.6;"></i>
+            </div>
+            
+            <!-- Geometric Shapes -->
+            <div class="position-absolute" style="top: 30%; left: 5%; width: 100px; height: 100px; background: var(--sc-strawberry); opacity: 0.1; border-radius: 50%; animation: pulse 4s ease-in-out infinite;"></div>
+            <div class="position-absolute" style="bottom: 30%; right: 8%; width: 80px; height: 80px; background: var(--sc-caramel); opacity: 0.1; border-radius: 20px; transform: rotate(45deg); animation: rotate 10s linear infinite;"></div>
+        </div>
+
+        <!-- Main Content Container -->
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row align-items-center justify-content-center min-vh-100">
+                <!-- Text Content -->
+                <div class="col-lg-6 col-md-8 text-center fade-in">
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb justify-content-center bg-transparent m-0">
+                            <li class="breadcrumb-item">
+                                <a href="index.html" class="text-decoration-none" style="color: var(--sc-chocolate-medium);">
+                                    <i class="fas fa-home me-1"></i>Home
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page" style="color: var(--sc-chocolate-dark);">About Us</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Main Title -->
+                    <div class="method-4">
+                        <h1 class="method-4 display-2 fw-bold mb-4 gradient-text">
+                        About Us
+                        </h1>
+                    </div>
+                    
+
+                    <!-- Subtitle -->
+                    <p class="lead mb-4 fs-3 fw-medium" style="color: var(--sc-chocolate-medium);">
+                        Discover the sweet story behind Sweet Dreams Bakery
+                    </p>
+
+                    <!-- Description -->
+                    <p class="mb-5 fs-5 mx-auto" style="color: var(--sc-chocolate-light); max-width: 600px;">
+                        Where passion meets perfection, and every cake tells a beautiful story. 
+                        Join us on a journey through our sweet legacy.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="d-flex flex-wrap gap-3 justify-content-center">
+                        <button class="btnAUH btnAUH-lg px-4 py-3 btnAUH-primary-custom fw-semibold" 
+                                onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                            <i class="fas fa-arrow-down me-2"></i>Learn Our Story
+                        </button>
+                        <a href="contact.html" class="btnAUH btnAUH-outline-custom btnAUH-lg px-4 py-3 fw-semibold">
+                            <i class="fas fa-phone me-2"></i>Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image/Visual Element -->
+                <div class="col-lg-6 text-center mt-5 mt-lg-0 fade-in">
+                    <div class="auh-image-container position-relative">
+                        <!-- Main Image -->
+                        <div class="auh-image mx-auto position-relative overflow-hidden">
+                            <!-- High-quality logo image -->
+                            <img src="./image/Logo.png" 
+                                 alt="Sweet Dreams Bakery Team" 
+                                 class="w-100 h-100 object-fit-cover"
+                                 loading="eager"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            
+                            <!-- Fallback content if image doesn't load -->
+                            <div class="d-none flex-column align-items-center justify-content-center text-center h-100" style="color: var(--sc-chocolate-medium);">
+                                <i class="fas fa-users mb-3" style="font-size: 4rem; opacity: 0.8;"></i>
+                                <h3 class="fs-4 mb-2">Our Amazing Team</h3>
+                                <p class="mb-0 opacity-75">Creating sweet memories together</p>
+                            </div>
+                        </div>
+
+                        <!-- Decorative Elements Around Image -->
+                        <div class="position-absolute decorative-circle-1"></div>
+                        <div class="position-absolute decorative-circle-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4">
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down fs-4" style="color: var(--sc-chocolate-medium); animation: bounce 2s infinite;"></i>
+            </div>
+        </div>
+    </section>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="cake-loader d-flex flex-column align-items-center">
+                        
+                        <!-- Cake Animation -->
+                        <div class="cake-container mb-4">
+                            <div class="sparkles">
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                                <div class="sparkle"></div>
+                            </div>
+                            
+                            <div class="cake-base"></div>
+                            <div class="cake-layer1"></div>
+                            <div class="cake-layer2"></div>
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Loading Text -->
+                        <h4 class="loading-text mb-3 text-center">Sweet Loading...</h4>
+                        
+                        <!-- Progress Bar -->
+                        <div class="progress-container mb-3">
+                            <div class="progress-fill"></div>
+                        </div>
+                        
+                        <!-- Loading Dots -->
+                        <div class="loading-dots d-flex justify-content-center">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        
+                        <!-- Optional Spinner for fallback -->
+                        <div class="mt-3">
+                            <div class="spinner-border text-secondary d-none" role="status" style="color: var(--primary-pink) !important;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="snowflake-effect-canvas"></canvas>
+
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -100,6 +275,313 @@
         </div>
     </section>
     </main>
+      <!-- Add these elements for the cart and notifications to work -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle me-2"></i>
+        <span id="notificationText"></span>
+    </div>
+
+
+    <!-- Cart Modal -->
+    <div class="modal fade cart-modal" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--vanilla); border-bottom: 2px solid var(--chocolate-light);">
+                    <h5 class="modal-title" style="color: var(--chocolate-medium); font-weight: 600;">
+                        <i class="fas fa-shopping-cart me-2"></i>Your Cart
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="background: var(--vanilla);">
+                    <div id="cartItems">
+                        <!-- Cart items will be inserted here -->
+                    </div>
+                    <div id="emptyCart" style="display: none; text-align: center; padding: 40px;">
+                        <i class="fas fa-shopping-cart display-1 text-muted mb-3"></i>
+                        <h4 class="text-muted">Your cart is empty</h4>
+                        <p class="text-muted">Add some delicious cakes to get started!</p>
+                    </div>
+                </div>
+                <div class="modal-footer flex-column" style="background: var(--vanilla); border-top: 2px solid var(--chocolate-light);">
+                    <div class="cart-total w-100 mb-3" id="cartTotal" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Total:</span>
+                            <span id="totalAmount" class="price-text">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 w-100">
+                        <button type="button" class="btn btn-secondary flex-fill" data-bs-dismiss="modal" style="border-radius: 20px;">Continue Shopping</button>
+                        <button type="button" class="btn btn-chocolate flex-fill" onclick="checkout()" id="checkoutBtn" style="display: none;">
+                            <i class="fas fa-credit-card me-1"></i>Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- our sponsor -->
+
+    <div class="container-fluid py-5">
+        <div class="row">
+            <div class="col-12">
+                <!-- Bootstrap Card for Sponsor Section -->
+                <div class="card sponsor-section border-0 rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <!-- Bootstrap Typography -->
+                        <h2 class="card-title sponsor-title text-center fw-bold mb-4">
+                            Our Trusted Partners
+                        </h2>
+                        
+                        <!-- Bootstrap Position Relative Container -->
+                        <div class="position-relative">
+                            <!-- Bootstrap Badge for Pause Indicator -->
+                            <span class="badge pause-indicator position-absolute top-0 end-0 m-3 z-3">
+                                <i class="bi bi-pause-fill"></i> Hover to Pause
+                            </span>
+                            
+                            <!-- Bootstrap Card for Carousel Container -->
+                            <div class="card sponsor-carousel-container border-0 rounded-3">
+                                <div class="card-body p-3">
+                                    <div class="sponsor-track">
+                                        <!-- First Set of Sponsors -->
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/A-Piece-O-Cake-Company-Logo.jpg" 
+                                                     alt="A Piece O’ Cake Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">A Piece O’ Cake</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Alice-Rose-Company-Logo.jpg" 
+                                                     alt="Alice Rose Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Alice Rose</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Bakelicious-Company-Logo.jpg" 
+                                                     alt="Bakelicious Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Bakelicious</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Bella-Torta-Company-Logo.jpg" 
+                                                     alt="Bella Torta Company " 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Bella Torta</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Chinoles-and-Cakes-Company-Logo.jpg" 
+                                                     alt="Chinoles and Cakes Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Chinoles and Cakes</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Sugar-Chic-Cake-Company-Logo.jpg" 
+                                                     alt="Sugar Chic Cake Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Sugar Chic Cake</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <!-- Duplicate Set for Seamless Loop -->
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Sugar-Monkey-Cake-Company-Logo.jpg" 
+                                                     alt="Sugar Monkey Cake Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Sugar Monkey Cake</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Sweet-Heart-Desire-Company-Logo.jpg" 
+                                                     alt="Sweet Heart Desire Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Sweet Heart Desire</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/Sweet-Pea-Cake-Company-Logo.jpg" 
+                                                     alt="Sweet Pea Cake Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">Sweet Pea Cake</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/The-Cake-Pop-Company-Logo.jpg" 
+                                                     alt="The Cake Pop Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">The Cake Pop</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/The-Great-Little-Cake-Company-Logo.jpg" 
+                                                     alt="The Great Little Cake Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">The Great Little Cake</span>
+                                            </div>
+                                        </a>
+                                        
+                                        <a href="#" class="sponsor-item card border-0 rounded-3 text-decoration-none">
+                                            <div class="card-body d-flex flex-column align-items-center justify-content-center h-100 p-2">
+                                                <img src="https://brandongaille.com/wp-content/uploads/2014/03/The-Kooky-Cake-Company-Logo.jpg" 
+                                                     alt="The Kooky Cake Company" 
+                                                     class="sponsor-logo rounded-circle mb-2">
+                                                <span class="sponsor-name small text-center">The Kooky Cake</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bootstrap Alert for Information -->
+                        <div class="alert sponsor-info border-0 mt-4 mb-0" role="alert">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <small class="mb-0">
+                                    <strong>💝 Thank you to our amazing sponsors!</strong> 
+                                    Hover over the carousel to pause scrolling.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our team -->
+
+    <div class="container-fluid py-5">
+        <div class="container">
+            <!-- sForOurTeam Title -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 text-center sForOurTeam-title fade-in">Our Team</h2>
+                </div>
+            </div>
+
+
+
+            <!-- Team Cards Container -->
+            <div class="row g-4" id="teamContainer">
+                <!-- Team members will be generated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+      <!-- Need Help Section -->
+    <section class="need-help-section">
+        <div class="container need-help-content">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title display-4">Need Help?</h2>
+                    <p class="section-subtitle">Have questions about ordering or need assistance? Our customer service team is always ready to help you choose the perfect cake for your occasion!</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Order Questions Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4 class="help-title text-center">Order Questions</h4>
+                        <p class="help-description text-center">
+                            Need help placing an order or have questions about our cakes? We're here to guide you through the process.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="help-btn">
+                                <i class="fas fa-question-circle"></i>
+                                Get Help
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cake Selection Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h4 class="help-title text-center">Perfect Cake Selection</h4>
+                        <p class="help-description text-center">
+                            Let our experts help you choose the ideal cake for your special occasion. We know what works best!
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="help-btn">
+                                <i class="fas fa-heart"></i>
+                                Find My Cake
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Service Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="help-title text-center">Customer Service</h4>
+                        <p class="help-description text-center">
+                            Our friendly customer service team is ready to assist you with any questions or concerns you may have.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="help-btn">
+                                <i class="fas fa-phone"></i>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-cta">
+                        <h3 class="cta-title">Ready to Order Your Perfect Cake?</h3>
+                        <p class="cta-description">
+                            Our team is standing by to help you create the perfect cake for your special moment. 
+                            Let's make your celebration unforgettable!
+                        </p>
+                        <a href="contact.html" class="cta-btn">
+                            <i class="fas fa-phone-alt"></i>
+                            Contact Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
 
    <!-- Footer -->
     <footer class="footer">
@@ -168,5 +650,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/cusor.js"></script>
+    <script src="./js/ourTeam.js"></script>
 </body>
 </html>

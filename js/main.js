@@ -1,12 +1,39 @@
 // Loading screen
+// Simulate loading process
 window.addEventListener('load', function() {
-    const loading = document.getElementById('loading');
-    if (loading) {
-        setTimeout(() => {
-            loading.classList.add('hidden');
-        }, 1000);
+    // Hide loading screen after 3 seconds (adjust as needed)
+    setTimeout(function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const mainContent = document.getElementById('mainContent');
+        
+        loadingScreen.classList.add('hidden');
+        mainContent.style.display = 'block';
+        
+        // Remove loading screen from DOM after transition
+        setTimeout(function() {
+            loadingScreen.remove();
+        }, 500);
+    }, 3000);
+})
+// Function to show loading screen (call this when needed)
+function showLoading() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        loadingScreen.classList.remove('hidden');
     }
-});
+}
+// Function to hide loading screen (call this when loading is complete)
+function hideLoading() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const mainContent = document.getElementById('mainContent');
+    
+    if (loadingScreen) {
+        loadingScreen.classList.add('hidden');
+        if (mainContent) {
+            mainContent.style.display = 'block';
+        }
+    }
+}
 
 // Cake data with image data
 const cakes = [
@@ -17,7 +44,8 @@ const cakes = [
         price: 45.99,
         tags: ["Birthday", "Chocolate"],
         emoji: "🍫",
-        imageData: "./image/1.png"
+        imageData: "./image/c1.jpg"  // or .jpeg if that's your actual file
+
     },
     {
         id: 2,
@@ -26,7 +54,7 @@ const cakes = [
         price: 39.99,
         tags: ["Wedding", "Vanilla"],
         emoji: "🍓",
-        imageData: "./image/Vanilla_Dreams.png"
+         imageData: "./image/c2.jpg"
     },
     {
         id: 3,
@@ -35,7 +63,7 @@ const cakes = [
         price: 42.99,
         tags: ["Anniversary", "Red Velvet"],
         emoji: "❤️",
-        imageData: "./image/3.png"
+        imageData: "./image/c3.jpg"
     },
     {
         id: 4,
@@ -44,7 +72,7 @@ const cakes = [
         price: 38.99,
         tags: ["Summer", "Citrus"],
         emoji: "🍋",
-        imageData: "./image/4.png"
+        imageData: "./image/c4.jpg"
     },
     {
         id: 5,
@@ -53,7 +81,7 @@ const cakes = [
         price: 48.99,
         tags: ["Gourmet", "Caramel"],
         emoji: "🍯",
-        imageData: "./image/5.png"
+        imageData: "./image/c5.jpg"
     },
     {
         id: 6,
@@ -62,7 +90,7 @@ const cakes = [
         price: 41.99,
         tags: ["Healthy", "Berry"],
         emoji: "🫐",
-        imageData: "./image/6.png"
+        imageData: "./image/c6.jpg"
     },
     {
         id: 7,
@@ -71,7 +99,7 @@ const cakes = [
         price: 52.99,
         tags: ["Gourmet", "Coffee"],
         emoji: "☕",
-        imageData: "./image/7.png"
+        imageData: "./image/c7.jpg"
     },
     {
         id: 8,
@@ -80,7 +108,7 @@ const cakes = [
         price: 44.99,
         tags: ["Summer", "Tropical"],
         emoji: "🥥",
-        imageData: "./image/8.png"
+        imageData: "./image/c8.jpg"
     },
     {
         id: 9,
@@ -89,7 +117,7 @@ const cakes = [
         price: 46.99,
         tags: ["Gourmet", "Cherry"],
         emoji: "🍒",
-        imageData: "./image/9.png"
+        imageData: "./image/c9.jpg"
     },
     {
         id: 10,
@@ -98,7 +126,7 @@ const cakes = [
         price: 43.99,
         tags: ["Healthy", "Matcha"],
         emoji: "🍵",
-        imageData: "./image/10.png"
+        imageData: "./image/c10.jpg"
     },
     {
         id: 11,
@@ -107,7 +135,7 @@ const cakes = [
         price: 47.99,
         tags: ["Birthday", "Cheesecake"],
         emoji: "🍰",
-        imageData: "./image/11.png"
+        imageData: "./image/c11.jpg"
     },
     {
         id: 12,
@@ -116,7 +144,7 @@ const cakes = [
         price: 40.99,
         tags: ["Healthy", "Carrot"],
         emoji: "🥕",
-        imageData: "./image/12.png"
+        imageData: "./image/c12.jpg"
     }
 ];
 

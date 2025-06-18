@@ -86,6 +86,7 @@ body {
     transform: translateY(-2px);
 }
 
+
 .cart-btn {
     background: var(--gradient);
     border: none;
@@ -509,36 +510,238 @@ body {
     transform: translateX(0);
 }
 
-/* ===== LOADING ===== */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--cream);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
+        /* ===== LOADING ===== */
+        :root {
+            --cream: #F5F5DC;
+            --primary-pink: #FF69B4;
+            --secondary-brown: #8B4513;
+            --accent-gold: #FFD700;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
 
-.loading-screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-.cake-loader {
-    font-size: 3rem;
-    animation: bounce 1s infinite;
-}
+        .cake-loader {
+            position: relative;
+            animation: bounce 1s infinite;
+        }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
+        .cake-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .cake-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--secondary-brown), #D2691E);
+            border-radius: 0 0 40px 40px;
+            animation: layerBounce 2s ease-in-out infinite;
+        }
+
+        .cake-layer1 {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 25px;
+            background: linear-gradient(45deg, var(--primary-pink), #FFB6C1);
+            border-radius: 12px;
+            animation: layerBounce 2s ease-in-out infinite 0.2s;
+        }
+
+        .cake-layer2 {
+            position: absolute;
+            bottom: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(45deg, var(--accent-gold), #F0E68C);
+            border-radius: 10px;
+            animation: layerBounce 2s ease-in-out infinite 0.4s;
+        }
+
+        .candle {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 25px;
+            background: linear-gradient(to bottom, #FF6347, #FF4500);
+            border-radius: 2px;
+            animation: layerBounce 2s ease-in-out infinite 0.6s;
+        }
+
+        .flame {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, var(--accent-gold), #FF6347);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 1s ease-in-out infinite alternate;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            animation: sparkle 3s linear infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 10%; left: 70%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { top: 60%; left: 20%; animation-delay: 1s; }
+        .sparkle:nth-child(4) { top: 70%; left: 80%; animation-delay: 1.5s; }
+        .sparkle:nth-child(5) { top: 30%; left: 90%; animation-delay: 2s; }
+        .sparkle:nth-child(6) { top: 80%; left: 50%; animation-delay: 2.5s; }
+
+        .loading-text {
+            color: var(--secondary-brown);
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: textPulse 2s ease-in-out infinite alternate;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .progress-container {
+            width: 200px;
+            height: 6px;
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-pink), var(--accent-gold), var(--primary-pink));
+            background-size: 200% 100%;
+            border-radius: 3px;
+            animation: progress 3s ease-in-out infinite, shimmer 2s linear infinite;
+        }
+
+        .loading-dots {
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-pink);
+            border-radius: 50%;
+            animation: dotPulse 1.5s ease-in-out infinite;
+        }
+
+        .dot:nth-child(1) { animation-delay: 0s; }
+        .dot:nth-child(2) { animation-delay: 0.3s; }
+        .dot:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes layerBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+            100% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes textPulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .cake-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .cake-base {
+                width: 70px;
+                height: 35px;
+            }
+            
+            .cake-layer1 {
+                width: 60px;
+                height: 22px;
+                bottom: 30px;
+            }
+            
+            .cake-layer2 {
+                width: 50px;
+                height: 18px;
+                bottom: 47px;
+            }
+            
+            .progress-container {
+                width: 150px;
+            }
+        }
 
 /* ===== ANIMATIONS ===== */
 .fade-in {
@@ -668,3 +871,263 @@ body {
         font-size: 1rem;
     }
 }
+.sForOurTeam-title {
+            color: var(--chocolate-medium);
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .sForOurTeam-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--strawberry);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Team card with original hover effects */
+        .team-card {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.5s, box-shadow 0.5s;
+            cursor: pointer;
+            border: none;
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .team-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .team-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .team-card:hover .team-image {
+            transform: scale(1.1);
+            opacity: 0.3;
+        }
+
+        .team-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            transform: translateY(80px);
+            transition: transform 0.5s;
+            color: var(--vanilla);
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        .team-card:hover .team-content {
+            transform: translateY(0);
+        }
+
+        .team-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--vanilla);
+        }
+
+        .team-role {
+            color: var(--caramel);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-content p {
+            line-height: 1.6;
+            opacity: 0;
+            transition: opacity 0.5s;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .team-card:hover .team-content p {
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .team-card:hover .team-social {
+            opacity: 1;
+            transition-delay: 0.3s;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            color: var(--vanilla);
+            font-size: 1.1rem;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            background: var(--strawberry);
+            color: white;
+        }
+
+        /* Scroll animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+/* Sponsor Section Styling */
+        .sponsor-section {
+            background: var(--vanilla);
+            border: 2px solid var(--chocolate-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .sponsor-title {
+            color: var(--chocolate-dark);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Bootstrap Card Modifications */
+        .sponsor-carousel-container {
+            background: var(--gradient);
+            border: none;
+            overflow: hidden;
+        }
+
+        .sponsor-track {
+            display: flex;
+            animation: sponsorScroll 25s linear infinite;
+            gap: 1rem;
+            width: 200%;
+        }
+
+        .sponsor-carousel-container:hover .sponsor-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes sponsorScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Bootstrap Button/Card Sponsor Items */
+        .sponsor-item {
+            flex: 0 0 180px;
+            height: 120px;
+            background: var(--vanilla);
+            border: 2px solid var(--chocolate-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sponsor-item:hover {
+            background: var(--cream);
+            border-color: var(--strawberry);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .sponsor-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--chocolate-light);
+            border: 3px solid var(--caramel);
+            transition: var(--transition);
+        }
+
+        .sponsor-item:hover .sponsor-logo {
+            border-color: var(--strawberry);
+            transform: scale(1.1);
+        }
+
+        .sponsor-name {
+            color: var(--chocolate-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .sponsor-item:hover .sponsor-name {
+            color: var(--strawberry);
+        }
+
+        /* Bootstrap Badge for Pause Indicator */
+        .pause-indicator {
+            background: var(--caramel) !important;
+            color: var(--chocolate-dark) !important;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .sponsor-carousel-container:hover .pause-indicator {
+            opacity: 1;
+        }
+
+        /* Bootstrap Alert for Info */
+        .sponsor-info {
+            background: var(--vanilla);
+            border: 1px solid var(--chocolate-light);
+            color: var(--chocolate-dark);
+        }
+
+        /* Responsive adjustments using Bootstrap breakpoints */
+        @media (max-width: 768px) {
+            .sponsor-item {
+                flex: 0 0 150px;
+                height: 100px;
+            }
+            
+            .sponsor-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sponsor-item {
+                flex: 0 0 130px;
+                height: 90px;
+            }
+            
+            .sponsor-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
