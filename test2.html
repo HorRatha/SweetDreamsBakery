@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Scrolling Cake Carousel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* Auto-scrolling carousel styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .carousel-item {
+            min-width: 25%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        @media (max-width: 992px) {
+            .carousel-item { min-width: 33.333%; }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item { min-width: 50%; }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-item { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- New Arrivals Section -->
+        <h2 class="section-title">🆕 New Arrivals</h2>
+        <div class="carousel-container">
+            <div class="carousel-track" id="newArrivalsTrack">
+                <!-- Cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Best Sellers Section -->
+        <h2 class="section-title">🔥 Best Sellers</h2>
+        <div class="carousel-container">
+            <div class="carousel-track" id="bestSellersTrack">
+                <!-- Cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Extended cake data with new arrivals and best sellers
+        const cakes = [
+            {
+                id: 1,
+                name: "Chocolate Paradise",
+                description: "Rich chocolate layers with smooth ganache and decadent cocoa flavor that melts in your mouth.",
+                price: 45.99,
+                tags: ["Birthday", "Chocolate"],
+                emoji: "🍫",
+                imageData: "./image/c1.jpg",
+                isNewArrival: true,
+                isBestSeller: false
+            },
+            {
+                id: 2,
+                name: "Vanilla Dreams",
+                description: "Classic vanilla sponge with fresh strawberries and whipped cream, light and airy.",
+                price: 39.99,
+                tags: ["Wedding", "Vanilla"],
+                emoji: "🍓",
+                imageData: "./image/c2.jpg",
+                isNewArrival: false,
+                isBestSeller: true
+            },
+            {
+                id: 3,
+                name: "Red Velvet Delight",
+                description: "Moist red velvet with cream cheese frosting and elegant finish, a true classic.",
+                price: 42.99,
+                tags: ["Anniversary", "Red Velvet"],
+                emoji: "❤️",
+                imageData: "./image/c3.jpg",
+                isNewArrival: false,
+                isBestSeller: true
+            },
+            {
+                id: 4,
+                name: "Lemon Burst",
+                description: "Zesty lemon cake with tangy frosting and citrus zest, refreshing and bright.",
+                price: 38.99,
+                tags: ["Summer", "Citrus"],
+                emoji: "🍋",
+                imageData: "./image/c4.jpg",
+                isNewArrival: true,
+                isBestSeller: false
+            },
+            {
+                id: 5,
+                name: "Caramel Supreme",
+                description: "Decadent caramel layers with sea salt and buttery goodness, rich and indulgent.",
+                price: 48.99,
+                tags: ["Gourmet", "Caramel"],
+                emoji: "🍯",
+                imageData: "./image/c5.jpg",
+                isNewArrival: false,
+                isBestSeller: true
+            },
+            {
+                id: 6,
+                name: "Berry Bliss",
+                description: "Mixed berry cake with whipped cream and fresh fruit, naturally sweet and healthy.",
+                price: 41.99,
+                tags: ["Healthy", "Berry"],
+                emoji: "🫐",
+                imageData: "./image/c6.jpg",
+                isNewArrival: true,
+                isBestSeller: false
+            },
+            {
+                id: 7,
+                name: "Tiramisu Tower",
+                description: "Italian classic with coffee, mascarpone and ladyfingers, sophisticated and elegant.",
+                price: 52.99,
+                tags: ["Gourmet", "Coffee"],
+                emoji: "☕",
+                imageData: "./image/c7.jpg",
+                isNewArrival: false,
+                isBestSeller: true
+            },
+            {
+                id: 8,
+                name: "Coconut Cloud",
+                description: "Tropical coconut cake with lime zest and exotic flavors, transport to paradise.",
+                price: 44.99,
+                tags: ["Summer", "Tropical"],
+                emoji: "🥥",
+                imageData: "./image/c8.jpg",
+                isNewArrival: true,
+                isBestSeller: false
+            },
+            // New cakes for variety
+            {
+                id: 13,
+                name: "Midnight Chocolate",
+                description: "Decadent dark chocolate cake with espresso and rich cocoa, perfect for chocolate lovers.",
+                price: 49.99,
+                tags: ["New", "Chocolate"],
+                emoji: "🌙",
+                imageData: "./image/c1.jpg",
+                isNewArrival: true,
+                isBestSeller: false
+            },
+            {
+                id: 14,
+                name: "Rainbow Delight",
+                description: "Colorful layers of vanilla cake with rainbow frosting, perfect for celebrations.",
+                price: 43.99,
+                tags: ["Party", "Colorful"],
+                emoji: "🌈",
+                imageData: "./image/c2.jpg",
+                isNewArrival: true,
+                isBestSeller: false
+            },
+            {
+                id: 15,
+                name: "Golden Honey",
+                description: "Honey-infused sponge cake with caramelized nuts and golden drizzle.",
+                price: 46.99,
+                tags: ["Gourmet", "Honey"],
+                emoji: "🍯",
+                imageData: "./image/c1.jpg",
+                isNewArrival: false,
+                isBestSeller: true
+            },
+            {
+                id: 16,
+                name: "Strawberry Fields",
+                description: "Fresh strawberry cake with cream cheese frosting and berry compote.",
+                price: 41.99,
+                tags: ["Fruity", "Fresh"],
+                emoji: "🍓",
+                imageData: "./image/c6.jpg",
+                isNewArrival: false,
+                isBestSeller: true
+            }
+        ];
+
+        // Your existing createCakeCard function
+        function createCakeCard(cake) {
+            const hasImage = cake.imageData && cake.imageData.trim() !== '';
+
+            return `
+                <div class="bakery-card bakery-card-main bakery-card-fixed-height" data-id="${cake.id}" onclick="openCakeDetail(${cake.id})" style="cursor: pointer;">
+                    <div class="bakery-image-wrapper">
+                        ${hasImage ? 
+                            `<img src="${cake.imageData}" class="bakery-image" alt="${cake.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                             <div class="bakery-emoji-backup" style="display: none;">${cake.emoji}</div>` :
+                            `<div class="bakery-emoji-container">${cake.emoji}</div>`
+                        }
+                    </div>
+                    <div class="bakery-content-area">
+                        <h3 class="bakery-item-title">${cake.name}</h3>
+                        <p class="bakery-item-price">$${cake.price.toFixed(2)}</p>
+                        <p class="bakery-item-desc">${cake.description}</p>
+                        <div class="bakery-tag-list">
+                            ${cake.tags.map(tag => `<span class="bakery-tag-item">${tag}</span>`).join('')}
+                        </div>
+                        <div class="bakery-action-buttons">
+                            <button class="bakery-btn-cart" onclick="event.stopPropagation(); addToCart(${cake.id})">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                            <button class="bakery-btn-details">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Auto-scrolling carousel class
+        class AutoCarousel {
+            constructor(trackElement, items, speed = 2000) {
+                this.track = trackElement;
+                this.items = items;
+                this.speed = speed;
+                this.currentIndex = 0;
+                this.isScrolling = false;
+                
+                this.init();
+            }
+
+            init() {
+                // Create double set of items for seamless loop
+                const doubledItems = [...this.items, ...this.items];
+                this.track.innerHTML = doubledItems.map(item => 
+                    `<div class="carousel-item">${createCakeCard(item)}</div>`
+                ).join('');
+
+                this.totalItems = this.items.length;
+                this.startAutoScroll();
+                
+                // Pause on hover
+                this.track.addEventListener('mouseenter', () => this.pauseAutoScroll());
+                this.track.addEventListener('mouseleave', () => this.resumeAutoScroll());
+            }
+
+            startAutoScroll() {
+                this.intervalId = setInterval(() => {
+                    this.scrollToNext();
+                }, this.speed);
+            }
+
+            pauseAutoScroll() {
+                if (this.intervalId) {
+                    clearInterval(this.intervalId);
+                }
+            }
+
+            resumeAutoScroll() {
+                this.startAutoScroll();
+            }
+
+            scrollToNext() {
+                if (this.isScrolling) return;
+                
+                this.isScrolling = true;
+                this.currentIndex++;
+
+                const translateX = -(this.currentIndex * 25); // 25% per item (4 items visible)
+                this.track.style.transform = `translateX(${translateX}%)`;
+
+                // Reset position when we reach the end of original items
+                if (this.currentIndex >= this.totalItems) {
+                    setTimeout(() => {
+                        this.track.style.transition = 'none';
+                        this.currentIndex = 0;
+                        this.track.style.transform = 'translateX(0%)';
+                        
+                        // Re-enable transition after reset
+                        setTimeout(() => {
+                            this.track.style.transition = 'transform 0.5s ease';
+                            this.isScrolling = false;
+                        }, 50);
+                    }, 500);
+                } else {
+                    setTimeout(() => {
+                        this.isScrolling = false;
+                    }, 500);
+                }
+            }
+        }
+
+        // Initialize carousels when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter cakes for each section
+            const newArrivals = cakes.filter(cake => cake.isNewArrival);
+            const bestSellers = cakes.filter(cake => cake.isBestSeller);
+
+            // Initialize carousels
+            const newArrivalsTrack = document.getElementById('newArrivalsTrack');
+            const bestSellersTrack = document.getElementById('bestSellersTrack');
+
+            if (newArrivalsTrack && newArrivals.length > 0) {
+                new AutoCarousel(newArrivalsTrack, newArrivals, 3000);
+            }
+
+            if (bestSellersTrack && bestSellers.length > 0) {
+                new AutoCarousel(bestSellersTrack, bestSellers, 2500);
+            }
+        });
+
+        // Placeholder functions for your existing functionality
+        function openCakeDetail(cakeId) {
+            console.log('Opening cake detail for ID:', cakeId);
+            // Your existing openCakeDetail function code here
+        }
+
+        function addToCart(cakeId) {
+            console.log('Adding to cart cake ID:', cakeId);
+            // Your existing addToCart function code here
+        }
+    </script>
+</body>
+</html>

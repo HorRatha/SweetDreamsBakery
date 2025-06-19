@@ -151,7 +151,7 @@ const cakes = [
 // Cart state - with persistent storage
 let cart = [];
 let filteredCakes = [...cakes];
-let visibleCount = 8;
+let visibleCount = 6;
 
 // Cart storage functions with fallback support
 function saveCartToStorage() {
@@ -220,12 +220,47 @@ const cartBadge = document.getElementById('cartBadge');
 const notification = document.getElementById('notification');
 const notificationText = document.getElementById('notificationText');
 
-// Create cake card HTML
+function createCakeCard(cake) {
+    const hasImage = cake.imageData && cake.imageData.trim() !== '';
+
+    return `
+        <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+            <div class="bakery-card bakery-card-main bakery-card-fixed-height" data-id="${cake.id}" onclick="openCakeDetail(${cake.id})" style="cursor: pointer;">
+                <div class="bakery-image-wrapper">
+                    ${hasImage ? 
+                        `<img src="${cake.imageData}" class="bakery-image" alt="${cake.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                         <div class="bakery-emoji-backup" style="display: none;">${cake.emoji}</div>` :
+                        `<div class="bakery-emoji-container">${cake.emoji}</div>`
+                    }
+                </div>
+                <div class="bakery-content-area">
+                    <h3 class="bakery-item-title">${cake.name}</h3>
+                    <p class="bakery-item-price">$${cake.price.toFixed(2)}</p>
+                    <p class="bakery-item-desc">${cake.description}</p>
+                    <div class="bakery-tag-list">
+                        ${cake.tags.map(tag => `<span class="bakery-tag-item">${tag}</span>`).join('')}
+                    </div>
+                    <div class="bakery-action-buttons">
+                        <button class="bakery-btn-cart" onclick="event.stopPropagation(); addToCart(${cake.id})">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                        <button class="bakery-btn-details">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 // function createCakeCard(cake) {
 //     const hasImage = cake.imageData && cake.imageData.trim() !== '';
-    
+
 //     return `
-//         <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+//         <div class="col-xl-4 col-lg-4 col-md-6 col-12">
 //             <div class="card cake-card card-fixed-height" data-id="${cake.id}" onclick="openCakeDetail(${cake.id})" style="cursor: pointer;">
 //                 <div class="cake-image">
 //                     ${hasImage ? 
@@ -251,37 +286,6 @@ const notificationText = document.getElementById('notificationText');
 //         </div>
 //     `;
 // }
-
-function createCakeCard(cake) {
-    const hasImage = cake.imageData && cake.imageData.trim() !== '';
-
-    return `
-        <div class="col-xl-4 col-lg-4 col-md-6 col-12">
-            <div class="card cake-card card-fixed-height" data-id="${cake.id}" onclick="openCakeDetail(${cake.id})" style="cursor: pointer;">
-                <div class="cake-image">
-                    ${hasImage ? 
-                        `<img src="${cake.imageData}" alt="${cake.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                         <div class="cake-emoji" style="display: none;">${cake.emoji}</div>` :
-                        `<div class="cake-emoji">${cake.emoji}</div>`
-                    }
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold mb-2">${cake.name}</h5>
-                    <p class="card-text flex-grow-1 small text-muted">${cake.description}</p>
-                    <div class="mb-3">
-                        ${cake.tags.map(tag => `<span class="badge cake-tag me-1 mb-1 px-2 py-1">${tag}</span>`).join('')}
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-auto">
-                        <span class="price-text">$${cake.price.toFixed(2)}</span>
-                        <button class="btn btn-chocolate btn-sm px-3" onclick="event.stopPropagation(); addToCart(${cake.id})">
-                            <i class="fas fa-shopping-cart me-1"></i>Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
 
 
 // Cake detail modal function
@@ -806,6 +810,7 @@ const notificationStyles = `
         z-index: 9999;
     }
 `;
+
 
 // Add all styles to head with better organization
 const styleSheet = document.createElement('style');

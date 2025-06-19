@@ -140,7 +140,7 @@ body {
 }
 
 /* ===== HERO SECTION ===== */
-.hero {
+/* .hero {
     background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(210, 105, 30, 0.7)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d2691e" width="1200" height="800"/><circle cx="200" cy="200" r="150" fill="%23ffbf00" opacity="0.3"/><circle cx="800" cy="400" r="200" fill="%23ff69b4" opacity="0.2"/><circle cx="1000" cy="600" r="100" fill="%23f5f5dc" opacity="0.4"/></svg>');
     background-size: cover;
@@ -166,7 +166,7 @@ body {
     bottom: 0;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
     animation: float 20s ease-in-out infinite;
-}
+} */
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -252,6 +252,14 @@ body {
     background: #c82333;
     transform: scale(1.05);
 }
+/* Dark mode button adjustments */
+[data-theme="dark"] .btn-remove {
+    background: #e74c3c;
+}
+
+[data-theme="dark"] .btn-remove:hover {
+    background: #c0392b;
+}
 
 /* ===== SECTIONS ===== */
 .section {
@@ -289,72 +297,8 @@ body {
     transition: var(--transition);
 }
 
+/* CSS Styles for Clean Cake Cards */
 .cake-card {
-    background: var(--vanilla);
-    border: 2px solid var(--chocolate-light);
-    border-radius: 20px;
-    transition: var(--transition);
-    height: 100%;
-    overflow: hidden;
-}
-
-.cake-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-}
-
-.cake-image {
-    height: 220px;
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.cake-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.cake-image:hover img {
-    transform: scale(1.05);
-}
-
-.cake-emoji {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    z-index: 2;
-    transition: var(--transition);
-}
-
-.cake-image:hover .cake-emoji {
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.cake-tag {
-    background: var(--strawberry);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 15px;
-    padding: 5px 10px;
-}
-
-.price-text {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--chocolate-medium);
-}
-
-.card-fixed-height {
-    min-height: 480px;
-}
-.bakery-card {
     height: 350px;
     border-radius: 15px;
     overflow: hidden;
@@ -366,12 +310,12 @@ body {
     box-shadow: var(--shadow);
 }
 
-.bakery-card:hover {
+.cake-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: var(--shadow-hover);
 }
 
-.bakery-image-wrapper {
+.cake-image-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -383,20 +327,20 @@ body {
     background: linear-gradient(135deg, var(--chocolate-light), var(--caramel));
 }
 
-.bakery-image {
+.cake-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition-slow);
 }
 
-.bakery-card:hover .bakery-image {
+.cake-card:hover .cake-image {
     transform: scale(1.1);
     opacity: 0.3;
 }
 
-.bakery-emoji-container,
-.bakery-emoji-backup {
+.cake-emoji-display,
+.cake-emoji-fallback {
     font-size: 4rem;
     display: flex;
     align-items: center;
@@ -407,13 +351,13 @@ body {
     transition: var(--transition-slow);
 }
 
-.bakery-card:hover .bakery-emoji-container,
-.bakery-card:hover .bakery-emoji-backup {
+.cake-card:hover .cake-emoji-display,
+.cake-card:hover .cake-emoji-fallback {
     transform: scale(1.2);
     opacity: 0.4;
 }
 
-.bakery-content-area {
+.cake-content {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -430,13 +374,13 @@ body {
     text-align: center;
 }
 
-.bakery-card:hover .bakery-content-area {
+.cake-card:hover .cake-content {
     justify-content: flex-end;
     background: linear-gradient(transparent, rgba(0,0,0,0.9));
     padding-bottom: 30px;
 }
 
-.bakery-content-area h3.bakery-item-title {
+.cake-content h3 {
     font-size: 1.4rem;
     margin-bottom: 5px;
     font-weight: bold;
@@ -446,7 +390,7 @@ body {
     transition: all 0.5s;
 }
 
-.bakery-item-price {
+.cake-role {
     color: var(--strawberry);
     font-weight: 700;
     font-size: 1.2rem;
@@ -456,7 +400,7 @@ body {
     transition: all 0.5s;
 }
 
-.bakery-item-desc {
+.cake-description {
     line-height: 1.5;
     opacity: 0;
     transition: opacity 0.5s;
@@ -465,12 +409,12 @@ body {
     color: var(--vanilla);
 }
 
-.bakery-card:hover .bakery-item-desc {
+.cake-card:hover .cake-description {
     opacity: 1;
     transition-delay: 0.2s;
 }
 
-.bakery-tag-list {
+.cake-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -480,12 +424,12 @@ body {
     transition: opacity 0.5s;
 }
 
-.bakery-card:hover .bakery-tag-list {
+.cake-card:hover .cake-tags {
     opacity: 1;
     transition-delay: 0.25s;
 }
 
-.bakery-tag-item {
+.cake-tag {
     background: rgba(255, 255, 255, 0.2);
     color: var(--vanilla);
     padding: 4px 12px;
@@ -496,7 +440,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.bakery-action-buttons {
+.cake-actions {
     display: flex;
     gap: 12px;
     justify-content: center;
@@ -504,18 +448,18 @@ body {
     transition: opacity 0.5s;
 }
 
-.bakery-card:hover .bakery-action-buttons {
+.cake-card:hover .cake-actions {
     opacity: 1;
     transition-delay: 0.3s;
 }
 
-.bakery-card:hover .bakery-content-area h3.bakery-item-title,
-.bakery-card:hover .bakery-item-price {
+.cake-card:hover .cake-content h3,
+.cake-card:hover .cake-role {
     opacity: 0.9;
 }
 
-.bakery-btn-cart,
-.bakery-btn-details {
+.btn-add-cart,
+.btn-view-details {
     padding: 10px 16px;
     border: none;
     border-radius: 25px;
@@ -528,36 +472,36 @@ body {
     gap: 6px;
 }
 
-.bakery-btn-cart {
+.btn-add-cart {
     background: var(--strawberry);
     color: white;
 }
 
-.bakery-btn-cart:hover {
+.btn-add-cart:hover {
     background: var(--chocolate-dark);
     transform: scale(1.05);
 }
 
-.bakery-btn-details {
+.btn-view-details {
     background: rgba(255, 255, 255, 0.2);
     color: var(--vanilla);
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
 }
 
-.bakery-btn-details:hover {
+.btn-view-details:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
 /* Animation for card entrance */
-.bakery-fade-in {
+.fade-in-cake {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s, transform 0.8s;
 }
 
-.bakery-fade-in.bakery-visible {
+.fade-in-cake.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -990,6 +934,7 @@ body {
     color: var(--vanilla);
     padding: 3rem 0 1rem;
 }
+
 
 .footer a {
     color: var(--vanilla);

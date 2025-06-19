@@ -140,7 +140,7 @@ body {
 }
 
 /* ===== HERO SECTION ===== */
-.hero {
+/* .hero {
     background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(210, 105, 30, 0.7)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d2691e" width="1200" height="800"/><circle cx="200" cy="200" r="150" fill="%23ffbf00" opacity="0.3"/><circle cx="800" cy="400" r="200" fill="%23ff69b4" opacity="0.2"/><circle cx="1000" cy="600" r="100" fill="%23f5f5dc" opacity="0.4"/></svg>');
     background-size: cover;
@@ -166,7 +166,7 @@ body {
     bottom: 0;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
     animation: float 20s ease-in-out infinite;
-}
+} */
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -353,213 +353,6 @@ body {
 
 .card-fixed-height {
     min-height: 480px;
-}
-.bakery-card {
-    height: 350px;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.5s, box-shadow 0.5s;
-    cursor: pointer;
-    border: none;
-    background: var(--gradient);
-    box-shadow: var(--shadow);
-}
-
-.bakery-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-hover);
-}
-
-.bakery-image-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--chocolate-light), var(--caramel));
-}
-
-.bakery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-slow);
-}
-
-.bakery-card:hover .bakery-image {
-    transform: scale(1.1);
-    opacity: 0.3;
-}
-
-.bakery-emoji-container,
-.bakery-emoji-backup {
-    font-size: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--vanilla), var(--caramel));
-    transition: var(--transition-slow);
-}
-
-.bakery-card:hover .bakery-emoji-container,
-.bakery-card:hover .bakery-emoji-backup {
-    transform: scale(1.2);
-    opacity: 0.4;
-}
-
-.bakery-content-area {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(0);
-    transition: all 0.5s;
-    color: var(--vanilla);
-    background: rgba(0,0,0,0.4);
-    text-align: center;
-}
-
-.bakery-card:hover .bakery-content-area {
-    justify-content: flex-end;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    padding-bottom: 30px;
-}
-
-.bakery-content-area h3.bakery-item-title {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: var(--vanilla);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    opacity: 1;
-    transition: all 0.5s;
-}
-
-.bakery-item-price {
-    color: var(--strawberry);
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    opacity: 1;
-    transition: all 0.5s;
-}
-
-.bakery-item-desc {
-    line-height: 1.5;
-    opacity: 0;
-    transition: opacity 0.5s;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    color: var(--vanilla);
-}
-
-.bakery-card:hover .bakery-item-desc {
-    opacity: 1;
-    transition-delay: 0.2s;
-}
-
-.bakery-tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 20px;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.bakery-card:hover .bakery-tag-list {
-    opacity: 1;
-    transition-delay: 0.25s;
-}
-
-.bakery-tag-item {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--vanilla);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.bakery-action-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.bakery-card:hover .bakery-action-buttons {
-    opacity: 1;
-    transition-delay: 0.3s;
-}
-
-.bakery-card:hover .bakery-content-area h3.bakery-item-title,
-.bakery-card:hover .bakery-item-price {
-    opacity: 0.9;
-}
-
-.bakery-btn-cart,
-.bakery-btn-details {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 25px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.bakery-btn-cart {
-    background: var(--strawberry);
-    color: white;
-}
-
-.bakery-btn-cart:hover {
-    background: var(--chocolate-dark);
-    transform: scale(1.05);
-}
-
-.bakery-btn-details {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--vanilla);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-}
-
-.bakery-btn-details:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-
-/* Animation for card entrance */
-.bakery-fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s, transform 0.8s;
-}
-
-.bakery-fade-in.bakery-visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ===== FORMS ===== */
@@ -990,6 +783,7 @@ body {
     color: var(--vanilla);
     padding: 3rem 0 1rem;
 }
+
 
 .footer a {
     color: var(--vanilla);

@@ -3,7 +3,7 @@
         const sampleTeam = [
             {
                 name: "Mr. Ratha",
-                role: "CEO & Founder",
+                role: "Founder",
                 image: "./image/01.png",
                 bio: "Visionary leader with 15+ years of experience in tech innovation. Passionate about building products that change lives.",
                 email: "horratha4t5@gmail.com",
@@ -12,9 +12,9 @@
                 github: "https://github.com/michaelchen"
             },
             {
-                name: "Michael Chen",
-                role: "CTO",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+                name: "Ms. Molina",
+                role: "UX & UI Designer",
+                image: "./image/02.png",
                 bio: "Full-stack developer and tech architect. Loves solving complex problems with elegant solutions.",
                 email: "michael@company.com",
                 linkedin: "https://linkedin.com/in/michael-chen",
@@ -22,13 +22,43 @@
                 github: "https://github.com/michaelchen"
             },
             {
-                name: "Emily Rodriguez",
-                role: "Head of Design",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+                name: "Mr. Khunheng",
+                role: "Our Frontend Developer",
+                image: "./image/03.png",
                 bio: "Creative designer with a passion for user experience. Believes great design should be invisible.",
                 email: "emily@company.com",
                 linkedin: "https://linkedin.com/in/emily-rodriguez",
                 twitter: "https://twitter.com/emilydesign",
+                github: "https://github.com/michaelchen"
+            },
+            {
+                name: "Ms.Sreypov",
+                role: "Frontend Designer",
+                image: "./image/04.png",
+                bio: "Visionary leader with 15+ years of experience in tech innovation. Passionate about building products that change lives.",
+                email: "horratha4t5@gmail.com",
+                linkedin: "https://linkedin.com/in/sarah-johnson",
+                twitter: "https://twitter.com/sarahj",
+                github: "https://github.com/michaelchen"
+            },
+            {
+                name: "Mr. Hongly",
+                role: "Api Supporter",
+                image: "./image/05.png",
+                bio: "Full-stack developer and tech architect. Loves solving complex problems with elegant solutions.",
+                email: "michael@company.com",
+                linkedin: "https://linkedin.com/in/michael-chen",
+                twitter: "https://twitter.com/sarahj",
+                github: "https://github.com/michaelchen"
+            },
+            {
+                name: "Ms. Meymey",
+                role: "Manager",
+                image: "./image/06.png",
+                bio: "Visionary leader with 15+ years of experience in tech innovation. Passionate about building products that change lives.",
+                email: "horratha4t5@gmail.com",
+                linkedin: "https://linkedin.com/in/sarah-johnson",
+                twitter: "https://twitter.com/sarahj",
                 github: "https://github.com/michaelchen"
             }
         ];
